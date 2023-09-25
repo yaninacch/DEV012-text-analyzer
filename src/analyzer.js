@@ -1,7 +1,7 @@
 const analyzer = {
   getWordCount: (text) => {
     //TODO: esta función debe retornar el recuento de palabras que se encuentran en el parámetro `text` de tipo `string`.
-    return text.trim().split(/\s+/).filter(tx => isNaN(tx)).length;
+    return text.trim().split(/\s+/).filter(tx => isNaN(tx) && !/[.,:!?]/.test(tx)).length;
   },
   getCharacterCount: (text) => {
     //TODO: esta función debe retornar el recuento de caracteres que se encuentran en el parámetro `text` de tipo `string`.
@@ -9,14 +9,13 @@ const analyzer = {
   },
   getCharacterCountExcludingSpaces: (text) => {
     //TODO: esta función debe retornar el recuento de caracteres excluyendo espacios y signos de puntuación que se encuentran en el parámetro `text` de tipo `string`.
-    return text.trim().split("").filter(tx => !/[.,:!?]/.test(tx)
-    ).length;
+    return text.trim().split("").filter(tx => !/[.,:!?.,;:"«»{}()¿¡-]/.test(tx)  && !/\s+/.test(tx) && tx !== '[' && tx !== ']').length;
     //return text.trim().split("").filter(tx => tx !=" " && tx !="." && tx !="," &&  tx!=";" && tx != ":" && tx != "?" && tx != "!" && tx != "¡" && tx != "¿").length;
   },
   getAverageWordLength: (text) => {
     //TODO: esta función debe retornar la longitud media de palabras que se encuentran en el parámetro `text` de tipo `string`.
 
-    let arrWords = text.trim().split(/\s+/).filter(tx => isNaN(tx));
+    const arrWords = text.trim().split(/\s+/).filter(tx => isNaN(tx) && !/[.,:!?]/.test(tx));
     let sumWords = 0;
     let average = 0;
 
@@ -30,17 +29,25 @@ const analyzer = {
       sumWords =  sumWords + Number(word.length); 
     }
 
-    average = sumWords / arrWords.length;
+    average = Math.round(sumWords / arrWords.length * 100) / 100;
 
     return average;
   },
   getNumberCount: (text) => {
     //TODO: esta función debe retornar cúantos números se encuentran en el parámetro `text` de tipo `string`.
-    return text.trim().split("").filter(tx => !isNaN(tx)).length;
+    const regEx = /\s+/;
+
+    const splittedArray = text.trim().split(regEx);
+    splittedArray[splittedArray.length-1] = splittedArray[splittedArray.length-1].replace(/\.$/, "");
+    return splittedArray.filter(tx => !isNaN(tx) && tx !== '').length;
   },
   getNumberSum: (text) => {
     //TODO: esta función debe retornar la suma de todos los números que se encuentran en el parámetro `text` de tipo `string`.
-    let arrNum = text.split("").filter(tx => !isNaN(tx));
+    const regEx = /\s+/;
+    const splittedArray = text.split(regEx);
+    splittedArray[splittedArray.length-1] = splittedArray[splittedArray.length-1].replace(/\.$/, "");
+
+    const arrNum = splittedArray.filter(tx => !isNaN(tx));
     
     let sum = 0;
 

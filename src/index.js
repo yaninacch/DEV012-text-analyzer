@@ -1,31 +1,35 @@
-import analyzer from './analyzer.js';
+import analyzer from "./analyzer.js";
 
 //TODO: escuchar eventos del DOM e invocar  los métodos del objeto `analyzer`
 
-let userInput = document.getElementsByName('user-input')[0];
-let wordCountLabel  = document.getElementsByTagName('li')[0];
-let characterCountLabel = document.getElementsByTagName('li')[1];
-let charecterNoSpaceCount = document.getElementsByTagName('li')[2];
-let numberCountLabel = document.getElementsByTagName('li')[3];
-let numberSumLabel = document.getElementsByTagName('li')[4];
-let wordLengthAverage = document.getElementsByTagName('li')[5];
-let resetButton = document.getElementById('reset-buttom');
-
-
+const userInput = document.querySelector('textarea[name="user-input"]');
+const wordCountLabel = document.querySelector('li.metric:nth-child(1)');
+const characterCountLabel = document.querySelector('li.metric:nth-child(2)');
+const charecterNoSpaceCount = document.querySelector('li.metric:nth-child(3)');
+const numberCountLabel = document.querySelector('li.metric:nth-child(4)');
+const numberSumLabel = document.querySelector('li.metric:nth-child(5)');
+const wordLengthAverage = document.querySelector('li.metric:nth-child(6)');
+const resetButton = document.getElementById("reset-button");
 
 userInput.addEventListener("input", (event) => {
-    let text = event.target.value;
+  const text = event.target.value;
 
-    wordCountLabel.innerHTML = 'Recuento de Palabras: ' + analyzer.getWordCount(text);
-    characterCountLabel.innerHTML = 'Recuento de Caracteres: ' + analyzer.getCharacterCount(text);
-    charecterNoSpaceCount.innerHTML = 'Recuento de Caracteres Sin Espacio: ' + analyzer.getCharacterCountExcludingSpaces(text);
-    numberCountLabel.innerHTML = 'Recuento de Números: ' + analyzer.getNumberCount(text);
-    numberSumLabel.innerHTML = 'Suma Total de Números: ' + analyzer.getNumberSum(text);
-    wordLengthAverage.innerHTML = 'Longitud Promedio de Palabras: ' + analyzer.getAverageWordLength(text);
-    
+  wordCountLabel.innerHTML =
+    "Recuento de Palabras: " + analyzer.getWordCount(text);
+  characterCountLabel.innerHTML =
+    "Recuento de Caracteres: " + analyzer.getCharacterCount(text);
+  charecterNoSpaceCount.innerHTML =
+    "Recuento de Caracteres Sin Espacio: " +
+    analyzer.getCharacterCountExcludingSpaces(text);
+  numberCountLabel.innerHTML =
+    "Recuento de Números: " + analyzer.getNumberCount(text);
+  numberSumLabel.innerHTML =
+    "Suma Total de Números: " + analyzer.getNumberSum(text);
+  wordLengthAverage.innerHTML =
+    "Longitud Promedio de Palabras: " + analyzer.getAverageWordLength(text);
 });
 
-resetButton.addEventListener("click",function(e){
-    e.preventDefault();
-    location.reload();
-})
+resetButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  location.reload();
+});

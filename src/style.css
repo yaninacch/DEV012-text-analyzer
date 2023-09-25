@@ -4,19 +4,30 @@ body{
 }
 
 
-h1{
+header{
     display: flex;
+    flex-direction: row;
     justify-content: center;
+    border: 3px solid black;
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(244,70,252,1) 100%);
+    border-radius: 7px;
+}
+h1{
     color: blanchedalmond;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
     font-size: 40px;
     text-shadow: 2px 2px black;
     padding: 10px;
-    border: 3px solid black;
-    background: rgb(63,94,251);
-    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(244,70,252,1) 100%);
-    border-radius: 7px;
+    
+}
+
+.glass{
+    height: 100px;
+    width: 100px;
+    margin-left: 0%;
+
 }
 
 img{
@@ -31,6 +42,7 @@ textarea{
     display: flex;
     flex: 1;
     margin-top: 20px;
+    border-radius: 7px;
 }
 
 .content{
@@ -42,12 +54,11 @@ textarea{
 
 ul{
     list-style-type: none;
+    flex: 1;
     
 }
 
-li{
-    display: flex;
-    flex: 1;
+.metric{ 
     color: blanchedalmond;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 25px;
@@ -71,7 +82,7 @@ li{
     margin-left: 280px;
 }
 
-#reset-buttom{
+#reset-button{
     display: flex;
     justify-content: center;
     border-radius: 7px;
