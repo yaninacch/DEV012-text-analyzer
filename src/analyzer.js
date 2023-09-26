@@ -1,7 +1,7 @@
 const analyzer = {
   getWordCount: (text) => {
     //TODO: esta función debe retornar el recuento de palabras que se encuentran en el parámetro `text` de tipo `string`.
-    return text.trim().split(/\s+/).filter(tx => isNaN(tx) && !/[.,:!?]/.test(tx)).length;
+    return text.trim().split(/\W+/).filter(tx => isNaN(tx) && !/[.,:!?]/.test(tx)).length;
   },
   getCharacterCount: (text) => {
     //TODO: esta función debe retornar el recuento de caracteres que se encuentran en el parámetro `text` de tipo `string`.
@@ -15,7 +15,7 @@ const analyzer = {
   getAverageWordLength: (text) => {
     //TODO: esta función debe retornar la longitud media de palabras que se encuentran en el parámetro `text` de tipo `string`.
 
-    const arrWords = text.trim().split(/\s+/).filter(tx => isNaN(tx) && !/[.,:!?]/.test(tx));
+    const arrWords = text.trim().split(/\s+/).filter(tx => isNaN(tx));
     let sumWords = 0;
     let average = 0;
 
@@ -28,6 +28,7 @@ const analyzer = {
       const word = arrWords[i];
       sumWords =  sumWords + Number(word.length); 
     }
+
 
     average = Math.round(sumWords / arrWords.length * 100) / 100;
 

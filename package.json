@@ -1,7 +1,7 @@
 {
   "name": "text-analyzer",
   "version": "1.0.0",
-  "main": "src/index.html",
+  "main": "index.html",
   "license": "MIT",
   "scripts": {
     "htmlhint": "htmlhint src/*.html",
@@ -16,7 +16,7 @@
     "test:e2e": "playwright test",
     "test:e2e-browser": "playwright test --headed",
     "open-coverage-report": "opener ./coverage/lcov-report/index.html",
-    "start": "serve ./src",
+    "start": "serve",
     "deploy": "gh-pages -d src"
   },
   "devDependencies": {
