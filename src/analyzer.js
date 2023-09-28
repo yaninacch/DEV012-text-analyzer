@@ -51,11 +51,13 @@ const analyzer = {
     const arrNum = splittedArray.filter(tx => !isNaN(tx));
     
     let sum = 0;
+    
 
     for (let i = 0; i < arrNum.length; i++) {
       const num = arrNum[i];
       sum = sum + Number(num);
     }
+    ;
     return sum;
   },
 };

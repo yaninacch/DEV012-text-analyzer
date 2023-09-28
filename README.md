@@ -759,3 +759,11 @@ en los archivos [test/analyzer.spec.js](test/analyzer.spec.js) y
 [read-only/test/e2e/app.spec.js](read-only/test/e2e/app.spec.js).
 También tendrás que ajustar las pruebas ya existentes de las
 funcionalidades requeridas.
+
+Planning:
+
+![imagen de planning](planning.png)
+
+Visualización final del proyecto:
+
+![imagen del proyecto](screenshot.png)
